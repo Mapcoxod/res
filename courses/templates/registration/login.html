@@ -2,18 +2,18 @@
 {% load i18n %}
 {% load widget_tweaks %}
 {% load staticfiles %}
-{% block title %}{% trans 'Log In' %}{% endblock %}
+{% block title %}{% trans 'Войти' %}{% endblock %}
 {% block content %}
 <div class="h-screen w-screen">
     <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
         <div class="flex rounded-lg shadow-lg w-full sm:w-3/4 lg:w-1/2 bg-white sm:mx-0" style="height: 500px">
             <div class="flex flex-col w-full md:w-1/2 p-4">
                 <div class="flex flex-col flex-1 justify-center mb-8">
-                    <h1 class="text-4xl text-center font-thin">{% trans 'Welcome Back' %}</h1>
+                    <h1 class="text-4xl text-center font-thin">{% trans 'Добро пожаловать!' %}</h1>
                     <div class="w-full mt-4">
                         <form class="form-horizontal w-3/4 mx-auto" method="POST" novalidate>
                         {% if form.errors %}
-                            <p>{% trans 'Your username and password didn\'t match. Please try again.' %}</p>
+                            <p>{% trans 'Логин и пароль не совпадают. Пожалуйста попробуйте снова.' %}</p>
                         {% endif %}
 
                         <input type="hidden" name="next" value="{{ next }}">
@@ -35,18 +35,18 @@
 
                         <div class="flex flex-col mt-8">
                             <button type="submit" class="bg-teal-500 hover:bg-teal-700 text-white text-sm font-semibold py-2 px-4 rounded">
-                                {% trans 'Login' %}
+                                {% trans 'Войти' %}
                             </button>
                         </div>
 
                         </form>
                         <div class="text-center mt-4">
                             <a class="no-underline hover:underline text-blue-700 text-xs" href="{% url 'password_reset' %}">
-                                {% trans 'Forgot Your Password?' %}
+                                {% trans 'Забыли пароль?' %}
                             </a>
                         </div>
                         <div class="text-center mt-4">
-                          <p class="text-xs">{% trans 'Don\'t have an account yet?' %} <a class="no-underline hover:underline text-blue-700 text-xs" href="{% url 'signup' %}">{% trans 'Create it !' %}</a></p>
+                          <p class="text-xs">{% trans 'Нет аккаунта?' %} <a class="no-underline hover:underline text-blue-700 text-xs" href="{% url 'signup' %}">{% trans 'Создать' %}</a></p>
                         </div>
                     </div>
                 </div>

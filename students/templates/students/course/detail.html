@@ -5,27 +5,27 @@
    {% endblock %}
    {% block content %}
    <div class="container admin">
-       <h1 class="header">
-           {{ module.title }}
-       </h1>
        <div class="admin__nav">
            <ul id="modules" class="menu">
-           {% for m in object.modules.all %}
-               <li data-id="{{ m.id }}" class="{% if m == module %}
-   selected{% endif %} menu__item">
-   <a class="menu__link" href="{% url 'students:student_course_detail_module' object.id m.id %}">
-       <span> Module <span class="order">{{ m.order|add:1 }} </span>
-        </span>
-    <br>
-    {{ m.title }}
-    </a> </li>
-{% empty %}
-    <li class="menu__item">No modules yet.</li>
+                       {% for m in object.modules.all %}
+                           <li data-id="{{ m.id }}" class="{% if m == module %}
+               selected{% endif %} menu__item">
+               <a class="menu__link" href="{% url 'students:student_course_detail_module' object.id m.id %}">
+                   <span> Модуль <span class="order">{{ m.order }} </span>
+                    </span>
+                <br>
+                {{ m.title }}
+                </a> </li>
+            {% empty %}
+                <li class="menu__item">Нет модулей</li>
 
-{% endfor %}
-</ul> </div>
+            {% endfor %}
+            </ul> </div>
        <div class="admin__main">
            <div class="modules">
+           <div class="card">
+             {{ module.description }}
+           </div>
                {% for content in module.contents.all %}
                <div class="card">
                {% with item=content.item %}
@@ -38,5 +38,15 @@
                {% endfor %}
            </div>
        </div>
+
    </div>
+     <div class="container">
+      <div class="card">
+        <h5 class="card-header">{{ module.title }}</h5>
+        <div class="card-body">
+          {{ module.content|safe }}
+        </div>
+      </div>
+     </div>
+
    {% endblock %}

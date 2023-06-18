@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load crispy_forms_tags humanize %}
 {% block title %}
-{% trans 'Results' %}
+{% trans 'Результаты' %}
 {% endblock %}
 
 {% block content %}
@@ -10,25 +10,25 @@
     <div class="quizzes">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{% url 'students:teacher_quiz_change_list' %}">{% trans 'My quizzes' %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'students:teacher_quiz_change_list' %}">{% trans 'Мои тесты' %}</a></li>
                 <li class="breadcrumb-item"><a href="{% url 'students:teacher_update_quiz' quiz.pk %}">{{ quiz.name }}</a></li>
-                <li class="breadcrumb-item" aria-current="page">{% trans 'Results' %}</li>
+                <li class="breadcrumb-item" aria-current="page">{% trans 'Результаты' %}</li>
             </ol>
         </nav>
 
-        <h2>{{ quiz.name }} {% trans 'results' %}</h2>
+        <h2>{{ quiz.name }} {% trans 'результаты' %}</h2>
 
         <div class="card">
             <div class="card-header">
-              <strong>{% trans 'Taken Quizzes' %}</strong>
-              <span class="badge badge-pill badge-primary float-right">{% trans 'Average score' %}{{ quiz_score.average_score|default_if_none:0.0}} %</span>
+              <strong>{% trans 'Пройденные тесты' %}</strong>
+              <span class="badge badge-pill badge-primary float-right">{% trans 'Средняя оценка' %}{{ quiz_score.average_score|default_if_none:0.0}} %</span>
             </div>
             <table class="table mb-0">
                 <thead>
                     <tr>
-                        <th>{% trans 'Student' %}</th>
-                        <th>{% trans 'Date' %}</th>
-                        <th>{% trans 'Score' %}</th>
+                        <th>{% trans 'Студент' %}</th>
+                        <th>{% trans 'Дата' %}</th>
+                        <th>{% trans 'Оценка' %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,7 +43,7 @@
             </table>
 
             <div class="card-footer text-muted">
-              {% trans 'Total respondents:' %} <strong>{{ total_taken_quizzes }}</strong>
+              {% trans 'Общее количество прошедших:' %} <strong>{{ total_taken_quizzes }}</strong>
             </div>
         </div>
     </div>

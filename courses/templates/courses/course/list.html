@@ -5,7 +5,7 @@
 {% if subject %}
    {{ subject.title }} {% trans 'courses' %}
 {% else %}
-    {% trans 'All courses' %}
+    {% trans 'Все курсы' %}
 {% endif %}
 {% endblock %}
 
@@ -18,7 +18,7 @@
                 <div class="relative">
                     <form action="{% url 'courses:search' %}" method="POST" id="form" role="form">
                         {% csrf_token %}
-                        <input type="search" 
+                        <input type="search"
                             class="h-8 p-4 text-sm w-full border"
                             name="q"
                             id="q"
@@ -27,7 +27,7 @@
                             ic-trigger-delay="300ms"
                             ic-target="#search-result-container"
                             required pattern="\S+.*"
-                            placeholder="{% trans 'Search for a topic and press enter' %}"
+                            placeholder="{% trans 'Напишите название, чтобы найти курс' %}"
                         >
                         <!--<button type="submit" class="opacity-0 flex items-center bg-gray-400 hover:bg-gray-600 absolute pin-r pin-y border px-8">{% trans 'Go' %}</button>-->
                     </form>
@@ -39,10 +39,10 @@
     <div class="container mx-auto lg:flex">
         <div class="sm:block lg:hidden mx-4 py-6">
             <div class="border-b">
-                <p class="text-gray-800 uppercase text-sm mb-6">{% trans 'Subjects' %}</p>
+                <p class="text-gray-800 uppercase text-sm mb-6">{% trans 'Предмет' %}</p>
                 <ul>
                     <li class="mb-6 {% if not subject %}active{% endif %}">
-                        <a href="{% url 'courses:course_list' %}">{% trans 'All' %}</a>
+                        <a href="{% url 'courses:course_list' %}">{% trans 'Все' %}</a>
                     </li>
                     {% for s in subjects %}
                     <li class="mb-6 {% if subject == s %}active{% endif %}">
@@ -61,7 +61,7 @@
                     {% if subject %}
                         <span class="uppercase ml-3 text-gray-600">{{ subject.title }} {% trans 'courses' %}</span>
                     {% else %}
-                        <span class="uppercase ml-3 text-gray-600">{% trans "All courses" %}</span>
+                        <span class="uppercase ml-3 text-gray-600">{% trans "Все курсы" %}</span>
                     {% endif %}
                 </h3>
                 <div id="search-result-container"></div>
@@ -82,19 +82,19 @@
                                 <h4 class="text-sm font-medium">{{ course.title }}</h4>
                             </a>
                             <a class="hidden" href="{% url 'courses:course_list_subject' subject.slug %}">
-                            {{ subject }} 
+                            {{ subject }}
                             </a>
                             <p class="mt-2 font-hairline text-sm text-gray-800">
                                 {{ course.total_modules }} {% trans 'modules' %}
                             </p>
                             <p class="mt-1 font-hairline text-xs text-gray-800">
                                 {% if course.average_rating %}
-                                {{ course.average_rating|floatformat:0  }} {% trans 'star(s)' %}
+                                {{ course.average_rating|floatformat:0  }} {% trans 'оценка' %}
                                 {% endif %} &middot; {{ course.created | date:"M d" }}
                             </p>
                             <a href="{% url 'courses:course_detail' course.slug %}">
                             <p class="inline-block p-1 text-gray-800 bg-gray-400 font-hairline text-2xs">
-                                {{ course.total_reviews }} {% trans 'reviews' %}
+                                {{ course.total_reviews }} {% trans 'просмотров' %}
                             </p>
                             </a>
                         </div>
@@ -106,10 +106,10 @@
         </div>
         <div class="hidden lg:block lg:w-1/4 py-6">
             <div class="border-b">
-                <p class="text-gray-800 uppercase text-sm mb-6">{% trans 'Subjects' %}</p>
+                <p class="text-gray-800 uppercase text-sm mb-6">{% trans 'Предметы' %}</p>
                 <ul>
                     <li class="mb-6 {% if not subject %}active{% endif %}">
-                        <a href="{% url 'courses:course_list' %}">{% trans 'All' %}</a>
+                        <a href="{% url 'courses:course_list' %}">{% trans 'Все' %}</a>
                     </li>
                     {% for s in subjects %}
                     <li class="mb-6 {% if subject == s %}active{% endif %}">

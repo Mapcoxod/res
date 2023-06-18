@@ -3,19 +3,19 @@
    {% block title %}My courses{% endblock %}
    {% block content %}
    <div class="container-fluid">
-       <h1>{% trans 'My courses' %}</h1>
-       <div>
+       <h1 class="mt-3">{% trans 'Мои курсы' %}</h1>
+       <div class="mt-3">
            {% for course in object_list %}
                 {% if course.modules.count > 0 %}
                <div>
                    <h3>{{ course.title }}</h3>
-                   <p><a href="{% url 'students:student_course_detail' course.id %}" class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2  border rounded-full">{% trans 'Access contents' %}</a></p>
+                   <p class="mt-3"><a href="{% url 'students:student_course_detail' course.id %}" class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2  border rounded-full">{% trans 'Начать' %}</a></p>
                </div>
                {% endif %}
            {% empty %}
                <p>
-                   {% trans 'You are not enrolled in any courses yet.' %}
-                   <a href="{% url 'courses:course_list' %}" class="link">{% trans 'Browse courses' %}</a> {% trans 'to enroll in a course.' %}
+                   {% trans 'Вы не проходите никакие курсы' %}
+                   <a href="{% url 'courses:course_list' %}" class="link">{% trans 'Посмотреть курсы' %}</a> {% trans 'чтобы пройти курс.' %}
                </p>
            {% endfor %}
        </div>

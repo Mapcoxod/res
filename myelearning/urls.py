@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.conf import settings
+from django.urls import path
 from django.views import generic
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -24,6 +25,7 @@ from students.views import students, classroom, teachers
 from django.views.generic import TemplateView
 
 urlpatterns = [
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^$', generic.RedirectView.as_view(url='/course/', permanent=True)),
 
     url(r'^accounts/login/$', auth_views.LoginView.as_view(), name='login'),

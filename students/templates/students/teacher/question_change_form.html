@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% block title %}
-{% trans 'Add question' %}
+{% trans 'Добавить вопрос' %}
 {% endblock %}
 
 {% block content %}
@@ -10,7 +10,7 @@
     <div class="quiz">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="{% url 'students:teacher_quiz_change_list' %}">{% trans 'My quizzes' %}</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'students:teacher_quiz_change_list' %}">{% trans 'Мои тесты' %}</a></li>
               <li class="breadcrumb-item"><a href="{% url 'students:teacher_update_quiz' quiz.pk %}">{{ quiz.name }}</a></li>
               <li class="breadcrumb-item active" aria-current="page">{{ question.text }}</li>
             </ol>
@@ -18,7 +18,7 @@
 
         <h2>{{ question.text }}</h2>
 
-        <form method="post" novalidate>    
+        <form method="post" novalidate>
             {% csrf_token %}
             {{ formset.management_form }}
             {{ form|crispy }}
@@ -26,13 +26,13 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-8">
-                    <strong>{% trans 'Answers' %}</strong>
+                    <strong>{% trans 'Ответы' %}</strong>
                   </div>
                   <div class="col-2">
-                    <strong>{% trans 'Correct ?' %}</strong>
+                    <strong>{% trans 'Правильный ?' %}</strong>
                   </div>
                   <div class="col-2">
-                    <strong>{% trans 'Delete ?' %}</strong>
+                    <strong>{% trans 'Удалить ?' %}</strong>
                   </div>
                 </div>
               </div>
@@ -61,10 +61,10 @@
                 {% endfor %}
               </div>
             </div>
-            <p>{% trans 'Your question must have at least 2 answers and maximum 10 answers. Select at least one correct answer.' %}</p>
-            <button class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">{% trans 'Save' %}</button>
-            <a href="{% url 'students:teacher_update_quiz' quiz.pk %}" class="btn btn-secondary" role="button">{% trans 'Go back' %}</a>
-            <a href="{% url 'students:teacher_delete_question' quiz.pk question.pk %}" class="btn btn-delete" role="button"><i class="icon icon-bin-2"></i>{% trans 'Delete' %}</a>
+            <p>{% trans 'Ваш вопрос должен иметь минимум два варианта ответа и содержать один правильный ответ' %}</p>
+            <button class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">{% trans 'Сохранить' %}</button>
+            <a href="{% url 'students:teacher_update_quiz' quiz.pk %}" class="btn btn-secondary" role="button">{% trans 'Назад' %}</a>
+            <a href="{% url 'students:teacher_delete_question' quiz.pk question.pk %}" class="btn btn-delete" role="button"><i class="icon icon-bin-2"></i>{% trans 'Удалить' %}</a>
         </form>
     </div>
 </div>

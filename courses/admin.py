@@ -11,6 +11,9 @@ from courses.models import BadgeAward
 from django.utils.translation import gettext_lazy as _
 from common.paginator import TimeLimitedPaginator, DumbPaginator
 
+from courses.forms import ModuleForm
+
+
 def export_to_csv(modeladmin, request, queryset):
     opts = modeladmin.model._meta
     response = HttpResponse(content_type='text/csv')
@@ -41,8 +44,13 @@ class SubjectAdmin(admin.ModelAdmin):
 
 
 class ModuleInline(admin.StackedInline):
-    model = Module
 
+    model = Module
+    form = ModuleForm
+
+@admin.register(Module)
+class ModuleAdmin(admin.ModelAdmin):
+    form = ModuleForm
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):

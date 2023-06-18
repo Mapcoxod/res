@@ -17,3 +17,9 @@ def gravatar(user):
     )
 
     return url
+
+
+@register.filter
+def verbose_name(instance, field_name):
+    print(instance)
+    return instance._meta.get_field(field_name).verbose_name

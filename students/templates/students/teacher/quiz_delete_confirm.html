@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block title %}
-{% trans 'Confirm quiz delete ?' %}
+{% trans 'Вы действительно хотите удалить?' %}
 {% endblock %}
 
 {% block content %}
@@ -9,18 +9,18 @@
     <div class="quiz">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="{% url 'students:teacher_quiz_change_list' %}">{% trans 'My quizzes' %}</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'students:teacher_quiz_change_list' %}">{% trans 'Мои тесты' %}</a></li>
               <li class="breadcrumb-item"><a href="{% url 'students:teacher_update_quiz' quiz.pk %}">{{ quiz.name }}</a></li>
-              <li class="breadcrumb-item active" aria-current="page">{% trans 'Confirm quiz delete ?' %}</li>
+              <li class="breadcrumb-item active" aria-current="page">{% trans 'Вы действительно хотите удалить?' %}</li>
             </ol>
         </nav>
 
-        <h2>{% trans 'Confirm quiz delete ?' %}</h2>
-        <p>{% trans 'Are your sure you want to delete the quiz' %} {{ quiz.name }} ? {% trans 'There is no recovery.' %}</p>
+        <h2>{% trans 'Подтвердить удаление ?' %}</h2>
+        <p>{% trans 'Вы уверены что хотите удалить' %} {{ quiz.name }} ? {% trans 'Его нельзя будет восстановить.' %}</p>
         <form method="post" novalidate>
             {% csrf_token %}
-            <button class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2  border rounded-full" type="submit"><i class="icon icon-bin-2"></i> {% trans 'Delete' %}</button>
-            <a href="{% url 'students:teacher_update_quiz' quiz.pk %}" class="btn btn-secondary" role="button">{% trans 'Go back' %}</a>
+            <button class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2  border rounded-full" type="submit"><i class="icon icon-bin-2"></i> {% trans 'Удалить' %}</button>
+            <a href="{% url 'students:teacher_update_quiz' quiz.pk %}" class="btn btn-secondary" role="button">{% trans 'Назад' %}</a>
         </form>
     </div>
 </div>

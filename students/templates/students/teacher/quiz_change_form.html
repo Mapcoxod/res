@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% block title %}
-{% trans 'Add question' %}
+{% trans 'Добавить вопрос' %}
 {% endblock %}
 
 {% block content %}
@@ -10,23 +10,23 @@
     <div class="quiz">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="{% url 'students:teacher_quiz_change_list' %}">{% trans 'My quizzes' %}</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'students:teacher_quiz_change_list' %}">{% trans 'Мои тесты' %}</a></li>
               <li class="breadcrumb-item active" aria-current="page">{{ quiz.name }}</li>
             </ol>
         </nav>
         <h2>
             {{ quiz.name }}
-            <a href="{% url 'students:teacher_quiz_results' quiz.pk %}" class="btn btn-secondary">{% trans 'View results' %}</a>
+            <a href="{% url 'students:teacher_quiz_results' quiz.pk %}" class="btn btn-secondary">{% trans 'Посмотреть результаты' %}</a>
         </h2>
         <div class="row mb-3">
             <div class="col-md-6 col-sm-8 col-12">
                 <form method="post" novalidate>
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2  border rounded-full">{% trans 'Save' %}</button>
-                    <a href="{% url 'students:teacher_quiz_change_list' %}" class="btn btn-secondary" role="button">{% trans 'Go back' %}</a>
-                    <a href="{% url 'students:teacher_delete_quiz' quiz.pk %}" class="btn btn-secondary"><i class="icon icon-bin-2"></i> {% trans 'Delete' %}</a>
-                </form>          
+                    <button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2  border rounded-full">{% trans 'Сохранить' %}</button>
+                    <a href="{% url 'students:teacher_quiz_change_list' %}" class="btn btn-secondary" role="button">{% trans 'Назад' %}</a>
+                    <a href="{% url 'students:teacher_delete_quiz' quiz.pk %}" class="btn btn-secondary"><i class="icon icon-bin-2"></i> {% trans 'Удалить' %}</a>
+                </form>
             </div>
         </div>
 
@@ -34,10 +34,10 @@
             <div class="card-header">
               <div class="row">
                 <div class="col-10">
-                  <strong>{% trans 'Questions' %}</strong>
+                  <strong>{% trans 'Вопросы' %}</strong>
                 </div>
                 <div class="col-2">
-                  <strong>{% trans 'Answers' %}</strong>
+                  <strong>{% trans 'Ответы' %}</strong>
                 </div>
               </div>
             </div>
@@ -55,16 +55,16 @@
                 </div>
               {% empty %}
                 <div class="list-group-item text-center">
-                  <p>{% trans 'You haven\'t created any questions yet. Go ahead and' %} <a href="{% url 'students:teacher_add_question' quiz.pk %}"> {% trans 'add the first question' %}</a>.</p>
+                  <p>{% trans 'У вас нет созданных вопросов' %} <a href="{% url 'students:teacher_add_question' quiz.pk %}"> {% trans 'сначала создайте вопросы' %}</a>.</p>
                 </div>
               {% endfor %}
             </div>
             <div class="card-footer">
-              <a href="{% url 'students:teacher_add_question' quiz.pk %}" class="btn btn-primary btn-sm">{% trans 'Add question' %}</a>
+              <a href="{% url 'students:teacher_add_question' quiz.pk %}" class="btn btn-primary btn-sm">{% trans 'Добавить вопрос' %}</a>
             </div>
-        </div>      
+        </div>
 
-        
+
     </div>
 </div>
 

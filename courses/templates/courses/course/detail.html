@@ -18,7 +18,7 @@
                     src="{{ course.owner|gravatar }}"
                     alt="">
                 <span class="block text-lg font-bold">
-                    {% trans 'Instructor' %} : {{ course.owner.username }}
+                    {% trans 'Преподаватель' %} : {{ course.owner.username }}
                 </span>
                 </a>
             </div>
@@ -26,7 +26,7 @@
             <h2 class=" font-bold h-2 mb-5 text-center"> {{ object.title }} </h2>
             <p class=" text-xs p-3"> {{ object.overview|linebreaks }}</p>
             <p class=" text-xs p-3">
-                {{ course.modules.count }} {% trans 'module(s)' %} 
+                {% trans 'Количество модулей: ' %}{{ course.modules.count }}
             </p>
             {% if course.modules.count > 0 %}
             <ul class="p-3">
@@ -39,13 +39,13 @@
             <form action="{% url 'students:student_enroll_course' %}" method="post">
                 {{ enroll_form }}
                 {% csrf_token %}
-                <input type="submit" class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2 border rounded-full" value="{% trans 'Enroll now' %}">
+                <input type="submit" class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2 border rounded-full" value="{% trans 'Зарегистрироваться сейчас' %}">
             </form>
             {% elif request.user.is_authenticated and course.modules.count == 0 %}
                 <p class=" text-xs p-3">{% trans "In progress" %}...</p>
             {% else %}
                 <a href="{% url 'students:student_registration' %}" class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2  border rounded-full">
-                    {% trans 'Register to enroll' %}
+                    {% trans 'Зарегистрироватья на курс' %}
                 </a>
             {% endif %}
         </div>
@@ -87,7 +87,7 @@
             <form action="{% url 'courses:add_review' course.slug %}" method="post" novalidate>
                 {% csrf_token %}
                 {{ review_form.as_p }}
-                <input type="submit" class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2  border rounded-full" value="{% trans 'Add review'%}" />
+                <input type="submit" class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2  border rounded-full" value="{% trans 'Оставить отзыв'%}" />
             </form>
         </div>
         {% endif %}

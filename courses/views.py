@@ -112,8 +112,9 @@ class CourseListView(TemplateResponseMixin, View):
             courses = paginator.page(1)
         except EmptyPage:
             courses = paginator.page(paginator.num_pages)
-        
+
         return self.render_to_response({'subjects': subjects, 'subject': subject, 'courses': courses})
+
 
 class CourseDetailView(DetailView):
     model = Course

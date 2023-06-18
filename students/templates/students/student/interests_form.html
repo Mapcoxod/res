@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block title %}
-{% trans 'Update your interests' %}
+{% trans 'Обновить интересы' %}
 {% endblock %}
 
 {% block content %}
 <div class="container-fluid">
-    <h2>{% trans 'Update your interests' %}</h2>
+    <h2>{% trans 'Обновить интересы' %}</h2>
     <div class="quiz">
         <form method="post" novalidate>
             {% csrf_token %}

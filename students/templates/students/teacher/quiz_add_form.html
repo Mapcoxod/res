@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% load i18n %}
 {% block title %}
-{% trans 'Add Quiz' %}
+{% trans 'Создать тест' %}
 {% endblock %}
 
 {% block content %}
@@ -10,18 +10,18 @@
     <div class="quiz">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="{% url 'students:teacher_quiz_change_list' %}">{% trans 'My quizzes' %}</a></li>
-              <li class="breadcrumb-item active" aria-current="page">{% trans 'Add Quiz' %}</li>
+              <li class="breadcrumb-item"><a href="{% url 'students:teacher_quiz_change_list' %}">{% trans 'Мои тесты' %}</a></li>
+              <li class="breadcrumb-item active" aria-current="page">{% trans 'Создать тест' %}</li>
             </ol>
         </nav>
 
-        <h2>{% trans 'Add a new quiz' %}</h2>
+        <h2>{% trans 'Создать новый тест' %}</h2>
 
         <form method="post" novalidate>
             {% csrf_token %}
             {{ form|crispy }}
-            <button class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">{% trans 'Save' %}</button>
-            <a href="{% url 'students:teacher_quiz_change_list' %}" class="btn btn-secondary" role="button">{% trans 'Go back' %}</a>
+            <button class="bg-teal-600 hover:bg-teal-700 text-white text-sm px-4 py-2  border rounded-full" type="submit">{% trans 'Сохранить' %}</button>
+            <a href="{% url 'students:teacher_quiz_change_list' %}" class="btn btn-secondary" role="button">{% trans 'Назад' %}</a>
         </form>
     </div>
 </div>

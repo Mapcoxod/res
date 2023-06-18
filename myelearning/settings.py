@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'ckeditor',
     'courses',
     'django.contrib.sites',
     'django.contrib.flatpages',
@@ -132,7 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
@@ -204,7 +205,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SESSION_EXPIRE_SECONDS = 18000  # 5 hours
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 
-DEVELOPER_KEY = config('DEVELOPER_API_KEY', 'developer_key_here')
+DEVELOPER_KEY = config('DEVELOPER_API_KEY', 'AIzaSyBVrqGDBqE85jvuaOO6-bXBTywbfCzoET0')
 
 # corsheaders
 CORS_ORIGIN_ALLOW_ALL = False
@@ -244,3 +245,13 @@ TERMS_STORE_IP_ADDRESS = True
 TERMS_BASE_TEMPLATE = 'base.html'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CKEDITOR_VERSION = 'default'
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    "default": {
+        "toolbar": "full",
+        "height": 300,
+        "width": 1200,
+    },
+}
